@@ -49,9 +49,9 @@ def make_new_student(first_name, last_name, github):
         VALUES (:first_name, :last_name, :github)
         """
 
-    db_cursor = db.session.execute(QUERY, {'first_name': first_name,
-                                           'last_name': last_name,
-                                           'github': github})
+    db.session.execute(QUERY, {'first_name': first_name,
+                               'last_name': last_name,
+                               'github': github})
     db.session.commit()
     print "Successfully added:\nStudent: {first} {last}\nGitHub account: {acct}".format(
         first=first_name, last=last_name, acct=github)
